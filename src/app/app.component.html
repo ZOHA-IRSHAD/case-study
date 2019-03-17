@@ -1,20 +1,67 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-- <div class="container">
+    <h2 class="mx-auto">Search</h2>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card bg-light text-dark">
+        <div class="card-body">
+            <div class="row">
+              <label>Experience</label>&nbsp;
+              <select class="form-control col-md-3">
+                  <option *ngFor="let exp of experience" value= {{exp}}>
+                     {{exp}}
+                  </option>
+                </select>&nbsp;
+         
+              <input type="text" class="form-control col-md-4" id="usr" placeholder="Location">&nbsp;&nbsp;
+              <button type="button" class="btn btn-secondary">Search</button>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+        </div>
+      </div>
+</div>
+</div>
+</div> -->
+<br>
+<br>
+<div class="container">
+  <h2 class="mx-auto">Jobs Listing</h2>
+  <div class="m-2">
+    <span>total jobs: {{filteredJobs.length}} </span>&nbsp;
+    <button type="button" class="btn btn-secondary" (click)="sort('location')">Sort by Location</button>&nbsp;
+    <button type="button" class="btn btn-secondary" (click)="sort('experience')">Sort by Exp</button>
+  </div>
+  <div class="row">
+    <input type="text" class="form-control m-2 col-md-3" [(ngModel)]="searchText" name="searchText" placeholder="Search by Skills">
+    <select class="form-control m-2 col-md-3" (change)="selectChangeHandler($event)">
+      <option value="" disabled selected>Experience</option>
+      <option *ngFor="let exp of experience" value={ {exp}}>
+        {{exp}}
+      </option>
+    </select>&nbsp;
+    <input type="text" class="form-control m-2 col-md-3" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search by Location">
+  </div>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let job of filteredJobs">
+      <div class="card bg-light text-dark">
+        <div class="card-body">
+          <ul>
+            <li>Jobtitle: {{job.title}}</li>
+            <li>Company: {{job.companyname}}</li>
+            <li>Experience: {{job.experience}}</li>
+            <li>Location: {{job.location}}</li>
+            <li>Salary: {{job.salary}}</li>
+            <li>Type: {{job.type}}</li>
+            <li>Skills: {{job.skills}}</li>
+            <li>Start Date: {{job.startdate}}</li>
+            <li>End Date: {{job.enddate}}</li>
+            <li>Apply Link: {{job.applylink}}</li>
+            <li>Source: {{job.source}}</li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
 
+  </div>
+</div>
